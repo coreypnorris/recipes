@@ -11,7 +11,6 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(params[:recipe])
-
     if @recipe.save
       redirect_to("/recipes/#{ @recipe.id }")
     else
@@ -44,5 +43,9 @@ class RecipesController < ApplicationController
     @recipe.destroy
 
     redirect_to("/recipes")
+  end
+
+  def get_all_tags
+    @tags = Tag.find(:all)
   end
 end

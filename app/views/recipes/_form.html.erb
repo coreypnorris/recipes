@@ -5,9 +5,19 @@
 <p><label for="recipe_tags">Tags:</label></p>
   <% @tags.each do |tag| %>
     <%= check_box_tag(
-        "recipe[tag_list][#{tag.id}]",
-        "1",
+        "tag_list[#{tag.id}]",
         @recipe.tags.detect{|d| d == tag}) %>
-    <%= "#{tag.display_name}" %><br/>
+    <%= "#{tag.name}" %><br/>
   <% end %>
+<p><label for="recipe_stars">Rate the recipe:</label></p>
+<input type="radio" name="recipe[stars]" value="1"> * </br>
+<input type="radio" name="recipe[stars]" value="2"> ** </br>
+<input type="radio" name="recipe[stars]" value="3"> *** </br>
+<input type="radio" name="recipe[stars]" value="4"> **** </br>
+<input type="radio" name="recipe[stars]" value="5"> ***** </br>
+</br>
+
+
+
+
 

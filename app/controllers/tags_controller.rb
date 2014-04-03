@@ -13,7 +13,7 @@ class TagsController < ApplicationController
     @tag = Tag.new(params[:tag])
 
     if @tag.save
-      redirect_to("/tags/#{ @tag.id }")
+      redirect_to("/tags")
     else
       render('tags/new.html.erb')
     end

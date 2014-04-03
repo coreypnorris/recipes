@@ -1,5 +1,6 @@
 <h1><%= @recipe.name %></h1>
 
+
 <h4>Directions:</h4>
 <p><%= @recipe.description %></p>
 
@@ -9,3 +10,10 @@
       data-method="delete"
       rel="nofollow">Delete</a></p>
 <p><a href="/recipes">View All Recipes</a></p>
+
+</br>
+
+<p>Tags:</p>
+ <% @recipe.tags.each do |tag| %>
+  <a href="/tags/<%= tag.id %>"> <%= tag.name %></a>
+  <% end %>

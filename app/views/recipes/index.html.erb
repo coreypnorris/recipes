@@ -6,4 +6,14 @@
   <% end %>
 </ul>
 
+<p><a href="">View By Rating</a></p>
 <p><a href="/recipes/new">Add A Recipe</a></p>
+
+</br>
+</br>
+
+
+<p>View Recipes by Tag:</p>
+ <% Tag.all.each do |tag| %>
+  <a href="/tags/<%= tag.id %>"> <%= tag.name %></a>
+  <% end %>

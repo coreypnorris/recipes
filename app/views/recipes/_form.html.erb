@@ -2,10 +2,12 @@
 <p><input id="recipe_name" name="recipe[name]" type="text" value="<%= @recipe.name %>"></p>
 <p><label for="recipe_description">Description: </label></p>
 <p><textarea cols="50" rows="5" id="recipe_description" name="recipe[description]"><%= @recipe.description %></textarea></p>
-<p><label for="recipe_tag">Tags:</label></p>
-<p><select name="recipes_tags[tag_id]">
-  <% Tag.all.each do |tag| %>
-   <option value="<%= tag.id %>"><%= tag.name %></option>
+<p><label for="recipe_tags">Tags:</label></p>
+  <% @tags.each do |tag| %>
+    <%= check_box_tag(
+        "recipe[tag_list][#{tag.id}]",
+        "1",
+        @recipe.tags.detect{|d| d == tag}) %>
+    <%= "#{tag.display_name}" %><br/>
   <% end %>
-</select></p>
 

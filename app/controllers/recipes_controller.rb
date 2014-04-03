@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @tags = Tag.all
     @recipe = Recipe.new
     render('recipes/new.html.erb')
   end
@@ -45,7 +46,4 @@ class RecipesController < ApplicationController
     redirect_to("/recipes")
   end
 
-  def get_all_tags
-    @tags = Tag.find(:all)
-  end
 end

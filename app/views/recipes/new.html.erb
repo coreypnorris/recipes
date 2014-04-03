@@ -1,19 +1,9 @@
 <h1>Add a Recipe</h1>
 
-<% if @recipe.errors.any? %>
-  <h3>Please fix these errors:</h3>
-  <ul>
-    <% @recipe.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render('layouts/errors', :object => @recipe) %>
 
 
 <form action="/recipes" method="post">
-  <label for="recipe_name">Name: </label>
-  <input id="recipe_name" name="recipe[name]" type="text">
-  <label for="recipe_description">Description: </label>
-  <input id="recipe_description" name="recipe[description]" type="text">
+<%= render('form') %>
   <button>Add Recipe</button>
 </form>
